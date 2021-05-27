@@ -1,14 +1,6 @@
 package com.elasticjob.tanht.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.aliyuncs.CommonRequest;
-import com.aliyuncs.CommonResponse;
-import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.IAcsClient;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ServerException;
-import com.aliyuncs.http.MethodType;
-import com.aliyuncs.profile.DefaultProfile;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.elasticjob.tanht.Entity.User;
 import com.elasticjob.tanht.exception.TanException;
@@ -96,26 +88,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public void sendMsg(JSONObject weather){
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4G9BaRxyd8oQszmEVi98", "7bVOjogv5eUMKkQdRVyuzSmfC30pUJ");
-        IAcsClient client = new DefaultAcsClient(profile);
-        CommonRequest request = new CommonRequest();
-        request.setSysMethod(MethodType.POST);
-        request.setSysDomain("dysmsapi.aliyuncs.com");
-        request.setSysVersion("2017-05-25");
-        request.setSysAction("SendSms");
-        request.putQueryParameter("RegionId", "cn-hangzhou");
-        request.putQueryParameter("PhoneNumbers", "17725020167");
-        request.putQueryParameter("SignName", "谭皓天");
-        request.putQueryParameter("TemplateCode", "SMS_205139209");
-        request.putQueryParameter("TemplateParam", weather.toJSONString());
-        try {
-            CommonResponse response = client.getCommonResponse(request);
-            System.out.println(response.getData());
-        } catch (ServerException e) {
-            e.printStackTrace();
-        } catch (ClientException e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Override
