@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.elasticjob.tanht.mapper.LogMapper" >
+
+    <resultMap id="BaseResultMap" type="com.elasticjob.tanht.Entity.LogInfo">
+        <id column="ID" property="id"/>
+        <result column="REQEUSTPARAM" property="requestParam"/>
+        <result column="RESPONSEPARAM" property="responseParam"/>
+        <result column="EXCEPTIONINFO" property="exceptionInfo"/>
+        <result column="STARTTIME" property="startTime"/>
+        <result column="ENDTIME" property="endTime"/>
+    </resultMap>
+
+
+
+</mapper>
